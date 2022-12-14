@@ -1,31 +1,51 @@
 #include "main.h"
 #include <stdio.h>
+
 /**
- * main - prints first 50 numbers of the fibonacci sequence
- * Return: 0
+ * print_times_table - prints time table with provided number
+ * @n: the provided value by the user
+ * Return: Always 0 (Success)
  */
-int main(void)
+
+void print_times_table(int n)
 {
-	int i, n;
-	long f1, f2, next;
+	int row;
+	int column;
+	int product;
 
-	f1 = 1;
-	f2 = 2;
-	n = 50;
-
-	for (i = 0; i < n; i++)
+	if (n < 0 || n >= 15)
+		return;
+	for (row = 0; row <= n; row++)
 	{
-		if (i == 49)
+		for (column = 0; column <= n; column++)
 		{
-			printf("%lu", f1);
-		} else
-		{
-			printf("%lu, ", f1);
-			next = f1 + f2;
-			f1 = f2;
-			f2 = next;
+			product = (row * column);
+			if (column == 0)
+				_putchar('0' + product);
+			else
+			{
+				_putchar(',');
+				_putchar(' ');
+				if (product <= 9)
+				{
+					_putchar(' ');
+					_putchar(' ');
+					_putchar('0' + product);
+				}
+				else if (product > 9 && product < 100)
+				{
+					_putchar(' ');
+					_putchar('0' + (product / 10));
+					_putchar('0' + (product % 10));
+				}
+				else if (product >= 100)
+				{
+					_putchar('0' + (product / 100));
+					_putchar('0' + ((product / 10) % 10));
+					_putchar('0' + (product % 10));
+				}
+			}
 		}
+		_putchar('\n');
 	}
-	printf("\n");
-	return (0);
 }
