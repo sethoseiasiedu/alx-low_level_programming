@@ -1,24 +1,20 @@
-#include <stdio.h>
 #include "main.h"
-
 /**
-* puts2 - function that prints a string, followed by a new line, to stdout
-* @str: pointer value
-* Return: Always 0 (Success)
-*/
-
+  * puts2 - prints one char out of 2
+  * @str: input string
+  * Return: no return
+**/
 void puts2(char *str)
 {
-	int i;
-
-	i = 0;
-
-	while (str[i] != '\0')
-	{
-		if (i % 2 == 0)
-			_putchar(str[i]);
-		 i++;
-	}
-
-	_putchar('\n');
+int i, j = 0;
+while (str[i] != '\0')
+{
+i++;
+}
+while (j < i)
+{
+_putchar(str[j]);
+j = j + 2;
+}
+_putchar('\n');
 }
