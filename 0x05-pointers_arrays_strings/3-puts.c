@@ -1,16 +1,21 @@
+#include <stdio.h>
 #include "main.h"
+
 /**
- * _strlen - checks the length of a string
- * @s: string to check
- *
- * Return: int length of the string
- */
+* _puts - function that prints a string, followed by a new line, to stdout
+* @str: pointer value
+* Return: Always 0 (Success)
+*/
 
-int _strlen(char *s)
+void _puts(char *str)
 {
-	int length = 0;
+	int i = 0;
 
-	while (s[length])
-		length++;
-	return (length);
+	while (str[i] != '\0')
+	{
+		_putchar(str[i]);
+		 i++;
+	}
+
+	_putchar('\n');
 }
