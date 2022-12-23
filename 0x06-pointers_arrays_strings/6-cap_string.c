@@ -1,35 +1,41 @@
 #include "main.h"
-/**
- * cap_string - capitalizes every first letter of a word in a string
- * separators of words are: space, tabulation
- * new line
- * @s: POinter to string
- *
- * Return: Pointer to s
- */
-char *cap_string(char *s)
-{
-	int count;
 
-	count = 0;
-  while (s[count] != '\0')
+/**
+ * *cap_string - capitalizes all words of a string.
+ *
+ * @str: hold character.
+ * Return: string.
+ */
+char *cap_string(char *str)
+{
+	int i;
+
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (s[0] >= 97 && s[0] <= 122)
+		if (i == 0)
 		{
-			s[0] = s[0] - 32;
-		}
-		if (s[count] == ' ' || s[count] == '\t' || s[count] == '\n'
-		    || s[count] == ',' || s[count] == ';' || s[count] == '.'
-		    || s[count] == '.' || s[count] == '!' || s[count] == '?'
-		    || s[count] == '"' || s[count] == '(' || s[count] == ')'
-		    || s[count] == '{' || s[count] == '}')
-		{
-			if (s[count + 1] >= 97 && s[count + 1] <= 122)
+			if ((str[i] >= 97 && str[i] <= 122))
 			{
-				s[count + 1] = s[count + 1] - 32;
+				str[i] = str[i] - 32;
+				continue;
 			}
 		}
-		count++;
+		else if (str[i] == ' ')
+		{
+			++i;
+			if (str[i] >= 97 && str[i] <= 122)
+			{
+				str[i] = str[i] - 32;
+				continue;
+			}
+		}
+		else
+		{
+			if (str[i] >= 65 && str[i] <= 90)
+			{
+				str[i] = str[i] + 32;
+			}
+		}
 	}
-	return (s);
+	return (str);
 }
