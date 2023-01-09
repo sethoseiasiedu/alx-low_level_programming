@@ -1,29 +1,88 @@
 #include <stdio.h>
+		
 #include <stdlib.h>
-#include <ctype.h>
+		
+#include "main.h"
+		
+
+		
 /**
- * main - main funct
- * @argc: param count
- * @argv: param poiter
- * Return: int
+		
+ * main - prints the minimum number of coins to
+		
+ * make change for an amount of money
+		
+ * @argc: number of arguments
+		
+ * @argv: array of arguments
+		
+ *
+		
+ * Return: 0 (Success), 1 (Error)
+		
  */
+		
 int main(int argc, char *argv[])
+		
 {
-	int i, j, sum = 0;
+		
+	int num, j, result;
+		
+	int coins[] = {25, 10, 5, 2, 1};
+		
 
-	for (i = 1; i < argc; i++)
+		
+	if (argc != 2)
+		
 	{
-		for (j = 0; argv[i][j] != '\0'; j++)
-		{
-			if (!isdigit(argv[i][j]))
-			{
-				printf("Error\n");
-				return (1);
-			}
-		}
-		sum += atoi(argv[i]);
+		
+		printf("Error\n");
+		
+		return (1);
+		
 	}
-	printf("%d\n", sum);
+		
 
+		
+	num = atoi(argv[1]);
+		
+	result = 0;
+		
+
+		
+	if (num < 0)
+		
+	{
+		
+		printf("0\n");
+		
+		return (0);
+		
+	}
+		
+
+		
+	for (j = 0; j < 5 && num >= 0; j++)
+		
+	{
+		
+		while (num >= coins[j])
+		
+		{
+		
+			result++;
+		
+			num -= coins[j];
+		
+		}
+		
+	}
+		
+
+		
+	printf("%d\n", result);
+		
 	return (0);
+		
 }
+
